@@ -29,8 +29,8 @@ This project is a C++ simulation of a strategic battle between cowboys and ninja
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/halelitzhaki/CowboyVsNinja-Simulation.git
-   cd CowboyVsNinja-Simulation
+   git clone https://github.com/halelitzhaki/cowboy-vs-ninja.git
+   cd cowboy-vs-ninja
    ```
 
 2. **Build the Project**:
