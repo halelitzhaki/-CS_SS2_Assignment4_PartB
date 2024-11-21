@@ -1,155 +1,73 @@
-# cowboy_vs_ninja_a
+# Cowboy VS. Ninja Simulation
 
-בתרגיל זה ניצור סימולציה של קרב בין נינגות ובוקרים
+## Overview
 
-# חלק 1 Point
+This project is a C++ simulation of a strategic battle between cowboys and ninjas. It demonstrates object-oriented programming principles, including inheritance, polymorphism, and encapsulation. The simulation allows for the creation of teams composed of different character types, each with unique abilities and behaviors.
 
-תחילה, נכתוב מחלקה שתעזור לנו לשמור מיקום על לוח המשחק. המיקום נתון כשתי קורדינאטות מסוג double ששומרות
-את מיקום היחידה לאורך הצירים x ו - y בהתאם.
-על ממשק המחלקה לתמוך בפעולות הבאות:
+## Features
 
-קונסטרקטור מקבל את שתי הקואורדינאטות –
+- **Character Classes**:
+  - *Cowboy*: Equipped with a gun, can shoot enemies.
+  - *Ninja*: Possesses agility and can slash enemies with a sword.
+  - *YoungNinja*, *TrainedNinja*, *OldNinja*: Variants of Ninja with differing attributes.
 
-מרחק distance
-מקבלת נקודה ומחשבת את המרחק בין שתי הנקודות –
+- **Team Formation**: Create teams of up to ten characters, mixing cowboys and ninjas.
 
-הדפסה print
-מדפיסה את שתי הקואורדינטות בין סוגריים. -
+- **Battle Simulation**: Teams can engage in battles, with each character acting according to its abilities.
 
-לזוז ל moveTowards
-מקבלת נקודת מקור, נקודת יעד ומרחק. הפונקציה מחזירה את הנקודה הקרובה ביותר לנקודת היעד, –
-שנמצאת כל היותר במרחק הנתון מנקודת המקור
+- **Point Class**: Represents positions on the battlefield, supporting distance calculations and movement.
 
-# חלק 2 Character
+## Getting Started
 
-מחלקה זו מציינת דמות. לדמות יש מיקום )מסוג Point (, נקודות פגיעה )מיוצג ע"י מספר שלם( ושם שמיוצג ע"י מחרוזת
-תווים.
-פונקציות המוגדרות על דמות:
+### Prerequisites
 
-האם חייisAlive()
-מחזיר ערך בוליאני האם הדמות בחיים )כלומר יש לה יותר מאפס נקודות פגיעה( – –
+- C++17 compatible compiler
+- Make utility
 
-מרחק distance
-מקבל פוינטר לדמות אחרת ומחזיר את המרחק בין הדמויות ) – – double .)
+### Installation
 
- פגע hit
-מקבל מספר שלם. מחסיר את כמות נקודות הפגיעה המתאים מהדמות. לא מחזיר דבר. –
+1. **Clone the Repository**:
 
-שם getName()
-מחזיר את שם הדמות. -
+   ```bash
+   git clone https://github.com/halelitzhaki/CowboyVsNinja-Simulation.git
+   cd CowboyVsNinja-Simulation
+   ```
 
-מיקום getLocation()
-מחזיר את מיקום הדמות. -
+2. **Build the Project**:
 
-הדפסה print()
-מדפיס את שם הדמות, את מספר נקודות הפגיעה שלה, ואת הנקודה בה הדמות נמצאת. אם הדמות מתה מספר - -
-נקודות הפגיעה לא יודפס, ושם הדמות יופיע בסוגריים. לפני השם תופיע אות שמציינת את סוג הדמות: N לנינג'ה ו - C
-לבוקר.
+   Use the provided `Makefile` to compile the project:
 
-עבור בוקרים מוגדר גם הפרמטר "כמות כדורים" )מספר שלם( בוקר תמיד נוצר עם שישה כדורים ו 110 נקודות פגיעה. -
-הפונקציות הבאות מוגדרות עבור בוקרים בלבד:
+   ```bash
+   make
+   ```
 
-לירות shoot 
-מקבל מצביע לאוייב. אם הבוקר לא מת ונשארו לו כדורים, הבוקר יורה באויב, מחסיר מהאויב 10 נקודות פגיעה –
-ומאבד כדור אחד. אחרת, לא ייגרם לאויב כל נזק.
+   This will compile the source code and generate the executable.
 
-בדיקת מחסנית hasboolets()
-מחזיר – Boolean שמציין האם נשארו כדורים באקדח של הבוקר.
+### Usage
 
-טעינה מחדש reload()
-טוען את האקדח בשישה כדורים חדשים.
+After building the project, you can run the simulation using:
 
-עבור נינג'ות מוגדר הפרמטר מהירות )מספר שלם(
-הפונקציות הבאותת מוגדרות עבור נינג'ות בלבד:
+```bash
+./demo
+```
 
-תזוזה move 
-מקבלת מצביע לאוייב ומתקדמת לעבר האוייב. הנינג'ה מתקדמת מרחק השווה למהירות שלה. –
+The demo program showcases the creation of characters, formation of teams, and execution of a battle simulation.
 
-שיסוף slash()
-– – מקבלת מצביע לאוייב. אם הנינג'ה בחיים והאוייב במרחק של פחות ממטר אחד הנינג'ה תגרום לאוייב נזק של 40
-נקודות פגיעה. אחרת, לא ייגרם לאוייב כל נזק.
+## Project Structure
 
-יש שלושה סוגים של נינג'ות:
+- `sources/`: Contains the implementation of classes and functions.
+- `Demo.cpp`: Demonstrates the usage of the classes and simulates a battle.
+- `Makefile`: Build script to compile the project.
+- `README.md`: Project documentation.
 
-YoungNinja
-נעות במהירות 14 . נוצרות עם 100 נקודות פגיעה. –
+## Contributing
 
-TrainedNinja
-נעות במהירות 12 . נוצרות עם 120 נקודות פגיעה. –
+Contributions are welcome! Please fork the repository and submit a pull request with your changes. Ensure that your code adheres to the existing style and includes appropriate tests.
 
-OldNinja
-נעות במהירות 8. נוצרות עם 150 נקודות פגיעה.
+## License
 
-# חלק 3 team
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-מחלקה זו היא קבוצה של עד עשרה לוחמים, כאשר לוחם יכול להיות נינג'ה או בוקר. לכל קבוצה מוגדר מנהיג שהוא אחד
-הלוחמים.
-כאשר קבוצה נוצרת, היא מקבלת מצביע למנהיג.
-פונקציות המוגדרות לגבי קבוצה:
+## Acknowledgments
 
-הוספה add() 
-מקבלת מצביע לבוקר או נינג'ה, ומוסיפה אותו לקבוצה. –
-
-תקיפה attack()
-מקבלת מצביע לקבוצה אויבת. תקיפת הקבוצה האויבת תיעשה בצורה הבאה: –
-תחילה יש לבדוק האם מנהיג הקבוצה התוקפת בחיים. אחרת יש לבחור מנהיג חדש, שהוא הדמות החיה הקרובה – –
-ביותר )מבחינת מיקום( למנהיג המת.
-אחר כך הקבוצה תיבחר קורבן מתוך קבוצת האויבים הקורבן הוא חבר קבוצת האויבים החי שעומד קרוב ביותר – – -
-למנהיג הקבוצה התוקפת.
-כל החברים החיים של הקבוצה התוקפת יתקפו את הקורבן הנבחר. בוקרים שיש להם כדורים באקדח יירו בקורבן,
-ובוקרים שאין להם כדורים יטענו את הנשק שלהם. נינג'ות שנמצאות במרחק פחות ממטר אחד מהקורבן ישספו את
-הקורבן, ונינג'ות שנמצאות רחוק יותר יתקדמו לעבר הקורבן. בכל שלב, אם הקורבן מת ייבחר קורבן חדש )שיהיה,
-שוב, דמות האויב החיה הקרובה ביותר למנהיג הקבוצה התוקפת.
-אם אין חברים חיים בקבוצה התוקפת או בקבוצת האויב התקיפה תסתיים. –
-
-האם חיי stillAlive()
-מחזירה מספר שלם כמות חברי הקבוצה שנותרו בחיים. – –
-
-הדפסה print()
-עוברת על כל הדמויות בקבוצה ומדפיסה את פרטיהן. –
-
-דיסטרקטור משחרר את הזכרון שהוקצה לכל הדמויות החברות בקבוצה. –
-
-
-מעבר על כל חברי הקבוצה (לצורך תקיפה, הדפסה, או השוואה) יתבצע תמיד בסדר הבא: קודם כל מעבר על כל הבוקרים,
-ואחר כך מעבר על כל הנינג'ות. בתוך כל קבוצה המעבר יתבצע על פי סדר ההוספה של הדמויות. מטרת הדרישה לפצל בין - -
-בוקרים לנינג'ות בחלק זה היא להקל עליכם. אם אתם מוצאים שהדרישה מסבכת את המימוש חשבו על מימוש אחר. –
-כאשר מחפשים את הדמות הקרובה ביותר, ושתי דמויות נמצאות במרחק זהה, תיבחר הדמות הראשונה שנבדקה ביניהן.
-
-# team2 
-
-זהה לteam אך המעבר על הדמויות יהיה לפי סדר ההוספה ללא אבחנה של בוקרים או נינגות
-
-# SmartTeam
-
-זהה לteam המעבר על הדמויות יהיה לפי בחירתכם לפי איזה סדר שתראו לנכון לממש
-מותר ורצוי בשלב זה "לתשאל" את הקבוצה השניה על מיקומי הכוחות והסטאטוס שלהם כמו גם להתחשב במצב הקבוצה התוקפת כדי למקסם נזק. 
-כאשר מטלה זו תיבדק במעבדה סטודנטים עם אלגוריתם חכם, יצירתי, יעיל ואפקטיבי יזכו בנקודות בונוס 
-(אי אפשר לעבור את ה10 מקסימום ועדין ניתן לקבל 10 עם אלגוריתם פשוט אבל אלגוריתם טוב יכפה על טעויות במקומות אחרים) 
-
-
-
-**חלק ב**: יש לכתוב: 
-
-*מימוש מלא למטלה כדי שהטסט יעבור.
-  
-כיתבו את כל הקבצים הדרושים כך שהפקודות הבאות יעבדו ללא שגיאות:
-
-<div dir='ltr'>
-
-	bash grade
-
-</div>
-
-מומלץ גם להריץ:
-
-<div dir='ltr'>
-
-    make tidy
-    make valgrind
-
-</div>
-
-אין לשנות קבצים קיימים אלא רק להוסיף קבצים חדשים.
-
-בהצלחה
+This project was developed as part of an academic assignment to practice advanced C++ programming concepts.
